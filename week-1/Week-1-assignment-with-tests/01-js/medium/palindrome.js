@@ -7,7 +7,17 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  var regex = [" ",',','?','!','.'];
+  for(var i = 0; i < regex.length; i++)
+    str = str.split(regex[i]).join("").toLowerCase();
+  s = ""
+  for(var i = str.length - 1; i >= 0; i--)
+    s = s + str[i];
+  if(s === str) return true;
+  return false;
 }
 
 module.exports = isPalindrome;
+
+// console.log(isPalindrome('Eva, can I see bees in a cave?'));
+
