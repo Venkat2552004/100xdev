@@ -6,17 +6,36 @@
  */
 
 function waitOneSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 1000)
+    })
 }
 
 function waitTwoSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 2000)
+    })
 }
 
 function waitThreeSecond() {
-
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, 3000)
+    })
 }
 
 function calculateTime() {
-
+    const start = Date.now();
+    waitOneSecond()
+        .then((res1) => { waitTwoSecond()
+        .then((res2) => {waitThreeSecond()
+        .then((res3) => {
+            const end = Date.now();
+            console.log(`It took ${(end - start) / 1000} seconds `);
+        })
+        })
+        })
 }
+
+calculateTime();
+
+// 1 + 2 + 3 = 6 seconds

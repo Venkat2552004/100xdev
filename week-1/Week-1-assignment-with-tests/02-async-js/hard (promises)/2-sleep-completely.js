@@ -4,5 +4,13 @@
  */
 
 function sleep (seconds) {
-
+    const start = Date.now();
+    while(true){
+        if(Date.now() - start == seconds * 1000)
+            break;
+    }
 }
+
+console.log("3 seconds sleep");
+sleep(3);
+console.log("3 seconds have passed");
